@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block title %}Welcome to College Admissions{% endblock %} {% block content %}
+<div class="jumbotron text-center">
+	<h1 class="display-4">Welcome to Our College</h1>
+	<p class="lead">
+		Start your journey towards excellence with our world-class education
+		programs.
+	</p>
+	<hr class="my-4" />
+	<p>Explore our courses and apply for admission today.</p>
+	<a class="btn btn-primary btn-lg" href="{% url 'apply' %}" role="button"
+		>Apply Now</a
+	>
+</div>
+
+<div class="row mt-5">
+	<div class="col-md-4">
+		<h3>Available Courses</h3>
+		<ul class="list-group">
+			{% for course in courses %}
+			<li class="list-group-item">
+				{{ course.name }}
+				<span class="badge bg-primary float-end">{{ course.seats }} seats</span>
+			</li>
+			{% endfor %}
+		</ul>
+		<a href="{% url 'course_list' %}" class="btn btn-outline-primary mt-3"
+			>View All Courses</a
+		>
+	</div>
+
+	<div class="col-md-8">
+		<h3>Why Choose Us?</h3>
+		<div class="card-deck">
+			<div class="card mb-4">
+				<div class="card-body">
+					<h5 class="card-title">Excellence in Education</h5>
+					<p class="card-text">
+						Our institution is known for providing quality education and
+						producing industry-ready professionals.
+					</p>
+				</div>
+			</div>
+			<div class="card mb-4">
+				<div class="card-body">
+					<h5 class="card-title">State-of-the-art Facilities</h5>
+					<p class="card-text">
+						Modern laboratories, library, and sports facilities to ensure
+						all-round development.
+					</p>
+				</div>
+			</div>
+			<div class="card mb-4">
+				<div class="card-body">
+					<h5 class="card-title">Expert Faculty</h5>
+					<p class="card-text">
+						Learn from experienced professors and industry experts.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

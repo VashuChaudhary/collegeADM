@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block title %}Available Courses{% endblock title %}
+{% block content %}
+<h2 class="mb-4">Available Courses</h2>
+
+<div class="row">
+	{% for course in courses %}
+	<div class="col-md-6 mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{{ course.name }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">
+					Course Code: {{ course.code }}
+				</h6>
+				<p class="card-text">{{ course.description }}</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<span class="badge bg-primary"
+						>{{ course.seats }} seats available</span
+					>
+					<a href="{% url 'apply' %}" class="btn btn-outline-primary"
+						>Apply Now</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% empty %}
+	<div class="col-12">
+		<div class="alert alert-info">No courses are currently available.</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock content %}

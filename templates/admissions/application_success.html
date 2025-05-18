@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %}Application Submitted Successfully{%
+endblock %} {% block content %}
+<div class="text-center">
+	<div class="card p-5">
+		<h1 class="text-success mb-4">
+			<i class="fas fa-check-circle"></i>
+			Application Submitted Successfully!
+		</h1>
+		<p class="lead">
+			Thank you for applying to our college. Your application has been received
+			and is being processed.
+		</p>
+		<p>
+			You will receive an email with further instructions and your application
+			tracking details.
+		</p>
+		<div class="mt-4">
+			<a href="{% url 'home' %}" class="btn btn-primary me-3">Return to Home</a>
+			<a href="{% url 'course_list' %}" class="btn btn-outline-primary"
+				>View More Courses</a
+			>
+		</div>
+	</div>
+</div>
+{% endblock %}
